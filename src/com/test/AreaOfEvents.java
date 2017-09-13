@@ -77,7 +77,7 @@ public class AreaOfEvents {
         }
 
         for(int i = 0; i < eventTotal; i++){
-            for(int j = 1; j < eventTotal - i; i++){
+            for(int j = 1; j < eventTotal - i; j++){
                 if (nearEvents[j - 1].getDistance() > nearEvents[j].getDistance()){
                     temp = nearEvents[j - 1];
                     nearEvents[j -1] = nearEvents[j];
