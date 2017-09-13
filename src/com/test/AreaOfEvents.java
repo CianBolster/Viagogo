@@ -58,6 +58,8 @@ public class AreaOfEvents {
 
     }
 
+    //Area to focus on for now
+
     public Event[] getSortedEventsList(int currentLocX, int currentLocY){
         Event[] nearEvents = new Event[eventTotal];
         int count = 0;
