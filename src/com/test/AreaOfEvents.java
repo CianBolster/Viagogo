@@ -22,7 +22,7 @@ public class AreaOfEvents {
 
     private void generateEvents(){
 
-        int numberOfEvents = (int) (Math.random()* 20);
+        int numberOfEvents = (int) ((Math.random()* 20) + 1);
 
         eventTotal = numberOfEvents;
 
