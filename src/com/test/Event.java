@@ -5,19 +5,18 @@ package com.test;
  */
 public class Event {
     private int id;
-    private int lowestPrice;
+    private double lowestPrice;
     private int xcoord;
     private int ycoord;
+    private int distance;
 
     public Event(int id) {
+        this.id = id;
+        lowestPrice = Math.random() * 25 + Math.random()* 30;
     }
 
-    public int getLowestPrice() {
+    public double getLowestPrice() {
         return lowestPrice;
-    }
-
-    public void setLowestPrice(int lowestPrice) {
-        this.lowestPrice = lowestPrice;
     }
 
     public int getXcoord() {
@@ -34,5 +33,17 @@ public class Event {
 
     public void setYcoord(int ycoord) {
         this.ycoord = ycoord;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
+    public int getId() {
+        return id;
     }
 }
