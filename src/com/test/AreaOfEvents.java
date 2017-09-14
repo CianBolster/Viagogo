@@ -71,9 +71,11 @@ public class AreaOfEvents {
           } else
               freeCoord = true;
         }
-
-        e.setXcoord(xCoord - 10);
-        e.setYcoord(yCoord - 10);
+        /*
+        The worldSize/2 allows for negative coordinates
+         */
+        e.setXcoord(xCoord - worldSizeX/2);
+        e.setYcoord(yCoord - worldSizeY/2);
 
 
 
