@@ -1,0 +1,18 @@
+# Viagogo
+Coding challange for Viagogo
+
+Instructions for use:
+Programmed in the IntelliJ ide. When running the 
+
+One assumption was made in that the user would input the data in the format asked and in the range asked.
+
+Larger world?
+The possiblty of larger world size is taken into account with the variables worldSizeX and worldSizeY. Assigning these a different value 
+will increase the size of your world. If this also meant that there was going to be a larger number of events then a different sorting
+algorithim maybe looked into. However in some cases bubble sort may be the most efficient.
+
+Multiple Events in the same location?
+Changing the 2d array into a normal array in the AreaOfEvents class along with the check for freeCoord in the assignCoord method will allow 
+for events to occur in the same location. Along with any references to the 2d array in the getSortedEventsList method to the newly created
+array and the program will run smoothly.
+
