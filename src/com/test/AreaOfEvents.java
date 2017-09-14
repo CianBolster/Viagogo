@@ -4,6 +4,14 @@ import java.util.ArrayList;
 
 /**
  * Created by Cian Bolster on 13/09/2017.
+ * This is the object that holds the information for the coordinates that the events are taking place along with
+ * the generation of the events itself.
+ *
+ * It has predetermined world sizes however these can be easily changed to fit a larger area.
+ *
+ * One thing of note is that the 2d array is used to make sure that there are always unique coordinates.
+ * Getting rid of this array would allow the program ro run without needing to assign unique coordinates to the
+ * events.
  */
 public class AreaOfEvents {
 
@@ -17,11 +25,12 @@ public class AreaOfEvents {
     }
 
     /**
-     * Generating the events that populate this general area. It is a random number between 1 and 20
+     * Generating the events that populate this particular instance of AreaOfEvents.
+     * It is a random number between 1 and 20 for the purpose of demonstration.
+     * Also handles the assigning of coordinates.
      */
 
     private void generateEvents(){
-
         int numberOfEvents = (int) ((Math.random()* 20) + 1);
 
         eventTotal = numberOfEvents;
@@ -29,19 +38,31 @@ public class AreaOfEvents {
         for(int i = 0; i < numberOfEvents; i++){
             Event e = new Event(i+1);
             assignCoord(e);
-            eventsArray[e.getXcoord()][e.getYcoord()] = e;
-            System.out.println("Assigned Coord for event " + e.getId());
+            eventsArray[e.getXcoord() + worldSizeX/2][e.getYcoord() + worldSizeY/2] = e;
+            // Code to check if events were getting their coordinates assigned
+            // System.out.println("Assigned Coord for event " + e.getId());
         }
 
-        System.out.println("Fin generating events");
+        // Code to say when the event generation had finished
+        // System.out.println("Fin generating events");
 
     }
+
+    /**
+     * This method ensures that the Event that is being passed in is getting a unique coordinate
+     *
+     */
 
     private void assignCoord(Event e){
         int xCoord = (int) (Math.random()*20);
         int yCoord = (int) (Math.random()*20);
 
         boolean freeCoord = false;
+
+        /* This is a slow point in the program if there are a large number of events and the random keeps giving
+           values that have already been assigned.
+
+        */
 
         while(!freeCoord){
           if(eventsArray[xCoord][yCoord] != null){
@@ -51,16 +72,21 @@ public class AreaOfEvents {
               freeCoord = true;
         }
 
-        e.setXcoord(xCoord);
-        e.setYcoord(yCoord);
+        e.setXcoord(xCoord - 10);
+        e.setYcoord(yCoord - 10);
 
 
 
     }
 
-    //Area to focus on for now
+    /**
+     * Creation an array which is then sorted based on distance from lowest to highest and then based back that
+     * array.
+     * Bubble sort was used for sorting.
+     */
 
     public Event[] getSortedEventsList(int currentLocX, int currentLocY){
+
         Event[] nearEvents = new Event[eventTotal];
         int count = 0;
         Event temp;
@@ -76,6 +102,7 @@ public class AreaOfEvents {
             }
         }
 
+        //Bubble sort
         for(int i = 0; i < eventTotal; i++){
             for(int j = 1; j < eventTotal - i; j++){
                 if (nearEvents[j - 1].getDistance() > nearEvents[j].getDistance()){

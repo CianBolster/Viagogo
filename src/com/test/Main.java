@@ -6,9 +6,15 @@ public class Main {
 
     static int totalEventsToPrint = 5;
 
+    /**
+     * Simple output method that also takes the possibility of a number of events being less then the max to be
+     * outputted.
+     */
+
     private static void outputListOfEvents(Event[] e){
         int printNum = e.length;
 
+        //This if statement is to allow for the fact that there can be less then 5 events.
         if(totalEventsToPrint < printNum){
             printNum = totalEventsToPrint;
         }

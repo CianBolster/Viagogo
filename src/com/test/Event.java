@@ -2,6 +2,8 @@ package com.test;
 
 /**
  * Created by Cian Bolster on 13/09/2017.
+ *
+ * Just a simple Event object that holds the necessary data needed for the Event.
  */
 public class Event {
     private int id;
