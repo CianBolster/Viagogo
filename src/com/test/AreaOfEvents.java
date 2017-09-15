@@ -121,7 +121,7 @@ public class AreaOfEvents {
     private int setDistance(int eventX, int eventY, int currentX, int currentY){
         int d;
 
-        d = (Math.abs(eventX - currentX) + Math.abs(eventY - currentY));
+        d = (Math.abs(currentX - eventX) + Math.abs(currentY - eventY));
 
         return d;
     }
