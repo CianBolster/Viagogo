@@ -5,6 +5,8 @@ Instructions for use:
 Programmed in the IntelliJ ide. Simply use Intellj's inbuilt github pull feature and then say yes to the prompt about setting up using the
 IDEA after that just press the play button in at the top. After that click in the newly opened window on the bottom and enter your
 coordinates and press enter.
+Another way to run it is to use the jre and jdk by compiling the three classes and the running the Main file while they are all located in 
+the same folder
 
 One assumption was made in that the user would input the data in the format asked and in the range asked.
 
